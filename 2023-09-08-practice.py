@@ -7,21 +7,23 @@ t_1 = 273.15 + 40 #Kelvin
 vol = 50 / 1000 #m^3
 p_1 = 2 # Bar
 v_1 = 1 / water.d(T=t_1, p = p_1) # 1/density, m^3/kg
+print(v_1)
 
 # Get density, mass, and enthalpy from the above properties.
 den = water.d(T=t_1, p=p_1)
 mass = vol * den
-enthalpy_i = water.h(T=t_1, p=p_1)
+h_1 = water.h(T=t_1, p=p_1)
 print(mass)
 
-t_2 = 273.15 + 100
+
 
 # Get the final enthalpy after vapourization of all substatnces
-temp_2 = 100 + 273.15
-enthalpy_f = water.h(T=temp_2, p=p_1, x=1)
-delta_h = enthalpy_f - enthalpy_i
+t_2 = water.T(p=p_1, x=1)
+h_2 = water.h(p=p_1, x=1)
+delta_h = mass * (h_2 - h_1)
 
-print(delta_h)
+
+print(delta_h, t_2)
 
 fig_1 = plt.figure(1)
 ax1 = fig_1.add_subplot(111)
@@ -41,6 +43,6 @@ ax1.set_xscale('log')
 ax1.set_xlim([5e-4, 1])
 ax1.set_ylim([.01,400.])
 
-ax1.plot(v_1, t_1, 'r')
+ax1.plot(v_1, t_1, 'k')
 
 plt.show()
