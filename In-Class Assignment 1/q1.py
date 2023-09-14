@@ -1,4 +1,7 @@
-import numpy as np
+# ENME 485 In-Class Assignment 1
+# Ahmed Almousawi, 30140399, ahmed.almousawi1@ucalgary.ca
+# Required libraries: Pyromat
+# Remember to close the first plot to see the second one!
 import pyromat as pm
 
 water = pm.get('mp.H2O')
