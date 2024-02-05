@@ -6,7 +6,12 @@ pm.config['unit_temperature'] = 'C'
 water = pm.get('mp.H2O')
 
 
-p_1= 2
+p_1= 0.5
 
-t_1 = water.Ts(p=p_1)
-print(t_1)
+s_1 = water.ss(p=p_1)[0]
+print(s_1)
+
+s_6 = s_1
+p_6 = 15
+t_6 = water.T(s=s_6, p=p_6)
+print(t_6)
